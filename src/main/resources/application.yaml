@@ -4,7 +4,10 @@ server:
 
 ecg:
   service:
-    url: http://127.0.0.1:8010/test
+    praybill: http://127.0.0.1:8010/test
+    ctpu:
+    ectpu: http://192.168.1.5:80/uapws/rest/ecgservice/creatbill
+    eplan: http://192.168.1.5:80/uapws/rest/ecgservice/creatplanbill
 
 
 
