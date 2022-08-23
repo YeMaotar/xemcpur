@@ -42,23 +42,8 @@ public class OperationsBillController {
     public String NcPrayBillToEBill(@RequestBody String requesting){
         String url = "http://192.168.1.20:8080/rest-api/receive/ncPoOrder";
         logSerivce.save(LogUtils.getEntity("请购单",requesting,null));
-//        HttpHeaders head = new HttpHeaders();
-//        head.setContentType(MediaType.APPLICATION_JSON);
-//
-//        restTemplate.postForEntity(url,requesting,String.class);
-//
-
-        //
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity(requesting, headers);
-//        ResponseEntity<String> response = restTemplate.postForEntity( ecgurl, request , String.class);
-//        System.out.println(response.getBody());
-
        String response =  RestClientUtils.doPostJson(url,requesting);
-
-
-        return "成功";
+       return "成功";
     }
 
     /**
@@ -69,8 +54,6 @@ public class OperationsBillController {
     @PostMapping("/ctpu")
     public String NcCtPuToEBill(@RequestBody String requesting){
         String url = "http://192.168.1.20:8080/rest-api/receive/erpContractResult";
-        //logSerivce.save(LogUtils.getEntity("采购合同",requesting,null));
-        //restTemplate.postForEntity(ecgurl,requesting,String.class);
         String response =  RestClientUtils.doPostJson(url,requesting);
         return "成功";
     }
@@ -82,7 +65,9 @@ public class OperationsBillController {
      */
     @PostMapping("/ectpu")
     public String EcgToNcCtPuBill(@RequestBody String requesting){
+        String url = "http://192.168.1.5:80/uapws/rest/ecgservice/creatbill";
         logSerivce.save(LogUtils.getEntity("采购平台采购合同",requesting,null));
+        String response =  RestClientUtils.doPostJson(url,requesting);
         return "成功";
     }
     /**
@@ -92,7 +77,9 @@ public class OperationsBillController {
      */
     @PostMapping("/eplan")
     public String EcgPlanToNcDefBill(@RequestBody String requesting){
+        String url = "http://192.168.1.5:80/uapws/rest/ecgservice/creatplanbill";
         logSerivce.save(LogUtils.getEntity("年标合同",requesting,null));
+        String response =  RestClientUtils.doPostJson(url,requesting);
         return "成功";
     }
 }
