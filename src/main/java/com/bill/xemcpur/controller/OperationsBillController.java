@@ -35,8 +35,8 @@ public class OperationsBillController {
     @PostMapping("/praybill")
     public String NcPrayBillToEBill(@RequestBody String requesting){
         //String url = "http://192.168.1.20:8080/rest-api/receive/ncPoOrder";
-        logSerivce.save(LogUtils.getEntity("请购单",requesting,null));
         String response =  RestClientUtils.doPostJson(ecgurl.getPraybill(),requesting);
+        logSerivce.save(LogUtils.getEntity("请购单",requesting,response));
         return "成功";
     }
 
@@ -49,7 +49,7 @@ public class OperationsBillController {
     public String NcCtPuToEBill(@RequestBody String requesting){
         //String url = "http://192.168.1.20:8080/rest-api/receive/erpContractResult";
         String response =  RestClientUtils.doPostJson(ecgurl.getCtpu(),requesting);
-        logSerivce.save(LogUtils.getEntity("请购单",requesting,null));
+        logSerivce.save(LogUtils.getEntity("采购合同",requesting,response));
         return "成功";
     }
 //
@@ -73,8 +73,8 @@ public class OperationsBillController {
     @PostMapping("/eplan")
     public String EcgPlanToNcDefBill(@RequestBody String requesting){
         //String url = "http://192.168.1.5:80/uapws/rest/ecgservice/creatplanbill";
-        logSerivce.save(LogUtils.getEntity("年标合同",requesting,null));
         String response =  RestClientUtils.doPostJson(ecgurl.getEplan(),requesting);
+        logSerivce.save(LogUtils.getEntity("年标合同",requesting,null));
         return "成功";
     }
 }

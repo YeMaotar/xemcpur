@@ -49,7 +49,7 @@ public class OaTransitController {
      * @return
      */
     @PostMapping(value = "/upload")
-    public String upLoadFiles(MultipartFile multipartFile) throws Exception{
+    public String upLoadFiles(@RequestBody MultipartFile multipartFile) throws Exception{
         File file=multipartFileToFile(multipartFile);
         //删除缓存信息
         try {
@@ -147,23 +147,23 @@ public class OaTransitController {
         Map<String, Object> dataOne = new HashMap<String, Object>();
         dataOne.put("templateCode", "CGHTSPD");//流程表单编码
         dataOne.put("draft", "0");
-        dataOne.put("attachments", data.get("fileUrl"));
-        dataOne.put("subject",data.get("title"));//标题
+        dataOne.put("attachments", data.get("field0013"));
+        dataOne.put("subject",data.get("field0005"));//标题
         Map<String, Object> dataTwo = new HashMap<String, Object>();
         HashMap<String, Object> mainData =new HashMap<String, Object>();
-        mainData.put("发起人", data.get("pers"));
-        mainData.put("发起人部门", data.get("dept"));
-        mainData.put("供应商名称", data.get("supplier"));
-        mainData.put("合同编码", data.get("code"));
-        mainData.put("合同名称", data.get("name"));
-        mainData.put("价格依据", data.get("basis"));
-        mainData.put("合同总金额", data.get("money"));
-        mainData.put("合同签订人", data.get("consignee"));
-        mainData.put("付款方式", data.get("paymentType"));
-        mainData.put("合同类别", data.get("pactType"));
-        mainData.put("合同来源", data.get("source"));
-        mainData.put("备注", data.get("note"));
-        mainData.put("附件ID", data.get("fileUrl"));
+        mainData.put("发起人", data.get("field0001"));
+        mainData.put("发起人部门", data.get("field0002"));
+        mainData.put("供应商名称", data.get("field0003"));
+        mainData.put("合同编码", data.get("field0004"));
+        mainData.put("合同名称", data.get("field0005"));
+        mainData.put("价格依据", data.get("field0006"));
+        mainData.put("合同总金额", data.get("field0007"));
+        mainData.put("合同签订人", data.get("field0008"));
+        mainData.put("付款方式", data.get("field0009"));
+        mainData.put("合同类别", data.get("field0010"));
+        mainData.put("合同来源", data.get("field0011"));
+        mainData.put("备注", data.get("field0012"));
+        mainData.put("附件ID", data.get("field0013"));
         mainData.put("合同附件", "8694702911343250661");
         HashMap<String, Object> thirdAttachment =new HashMap<String, Object>();
         thirdAttachment.put("subReference", 8694702911343250661L);
@@ -318,6 +318,7 @@ public class OaTransitController {
         String[] split = substr.split("\",\"");
         return split;
     }
+
 
 }
 
