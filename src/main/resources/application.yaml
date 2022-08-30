@@ -4,13 +4,13 @@ server:
 ecg:
   service:
     # 采购平台请购单地址
-    praybill: http://192.168.1.20:8080/rest-api/receive/ncPoOrder
+    praybill: http://192.168.1.29:8080/rest-api/receive/ncPoOrder
     # 采购平台合同地址
-    ctpu: http://192.168.1.20:8080/rest-api/receive/erpContractResult
+    ctpu: http://192.168.1.29:8080/rest-api/receive/erpContractResult
     # ERP采购合同地址
-    ectpu: http://192.168.1.5:80/uapws/rest/ecgservice/creatbill
+    ectpu: http://192.168.1.16:80/uapws/rest/ecgservice/creatbill
     # ERP年标计划地址
-    eplan: http://192.168.1.5:80/uapws/rest/ecgservice/creatplanbill
+    eplan: http://192.168.1.16:80/uapws/rest/ecgservice/creatplanbill
 
 
 
