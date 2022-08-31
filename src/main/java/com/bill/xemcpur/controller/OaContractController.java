@@ -43,10 +43,10 @@ import java.util.*;
 public class OaContractController {
     //String url="http://192.180.4.14/";  //OA地址
     String tabName="formmain_1582";    //OA流程表单名称
-    String url="http://127.0.0.1:8097/";   //OA地址
+    String url="http://192.168.1.117:8097/";   //OA地址
     //String tabName="formmain_0116"; 本机
-    String fileSite="C:\\Users\\Timber\\Desktop\\OEFile\\";  //文件保存地址
-
+    //String fileSite="C:\\Users\\Timber\\Desktop\\OEFile\\";  //文件保存地址
+    String fileSite="/Users/astronaut/IdeaProjects/";
 
     /**
      * 上传文件数据到OA
@@ -313,7 +313,7 @@ public class OaContractController {
 
     public  String getCurrTime(){
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyyMM");
-        return simpleDateFormat.format(new Date())+"\\";
+        return simpleDateFormat.format(new Date())+"/";
     }
 
 
